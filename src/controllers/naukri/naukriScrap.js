@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+require("dotenv").config()
 
 module.exports = async function (req, res) {
   var title = req.query.keyword;
@@ -13,11 +14,11 @@ module.exports = async function (req, res) {
   //lauch a chromium browser
   const puppeteerConfig = {
     headless: true,
-    args: ["--no-sandbox",'--disable-setuid-sandbox'],
-    //executablePath: "/usr/bin/chromium-browser"
+    args: ["--no-sandbox",'--disable-setuid-sandbox',"--single-process","--no-zygote  "],
+    executablePath: process.env.NODE_ENV === "production" ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath()
     //executablePath:"/opt/homebrew/bin/chromium"
   };
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch(puppeteerConfig);
 
   try {
     const page = await browser.newPage();

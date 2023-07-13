@@ -13,7 +13,7 @@ module.exports = async function (req, res) {
   //lauch a chromium browser
   const puppeteerConfig = {
     headless: true,
-    args: ["--no-sandbox"],
+    args: ["--no-sandbox",'--disable-setuid-sandbox'],
     //executablePath: "/usr/bin/chromium-browser"
     executablePath:"/opt/homebrew/bin/chromium"
   };

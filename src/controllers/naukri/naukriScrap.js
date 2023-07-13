@@ -1,4 +1,4 @@
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 
 module.exports = async function (req, res) {
   var title = req.query.keyword;
@@ -15,9 +15,9 @@ module.exports = async function (req, res) {
     headless: true,
     args: ["--no-sandbox",'--disable-setuid-sandbox'],
     //executablePath: "/usr/bin/chromium-browser"
-    executablePath:"/opt/homebrew/bin/chromium"
+    //executablePath:"/opt/homebrew/bin/chromium"
   };
-  const browser = await puppeteer.launch(puppeteerConfig);
+  const browser = await puppeteer.launch();
 
   try {
     const page = await browser.newPage();

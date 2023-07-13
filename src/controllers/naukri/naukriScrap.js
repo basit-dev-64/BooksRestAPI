@@ -1,4 +1,4 @@
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 require("dotenv").config()
 
 module.exports = async function (req, res) {
@@ -12,14 +12,17 @@ module.exports = async function (req, res) {
   var final_jobs = [];
 
   //lauch a chromium browser
-  const puppeteerConfig = {
-    executablePath:  process.env.PUPPETEER_EXECUTABLE_PATH ,
+  const puppeteerConfig = { 
     headless: true,
+    dumpio: true,
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
-      '--disabled-setupid-sandbox'
-    ]
+      '--disabled-setupid-sandbox',
+      '--single-process', 
+      '--no-zygote'
+    ],
+    executablePath:  process.env.PUPPETEER_EXECUTABLE_PATH
     //executablePath:"/opt/homebrew/bin/chromium"
   };
   const browser = await puppeteer.launch(puppeteerConfig);
@@ -31,7 +34,6 @@ module.exports = async function (req, res) {
       waitUntil: "networkidle0",
       timeout: 0
     });
-    console.log(page)
     //const html = await page.evaluate(()=> document.documentElement.outerHTML);
   
 

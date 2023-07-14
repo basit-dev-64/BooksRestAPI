@@ -17,7 +17,8 @@ module.exports = async function (req, res) {
     dumpio: true,
     args: [
       '--no-sandbox',
-      '--disable-setuid-sandbox'
+      '--disable-setuid-sandbox',
+      '--remote-debugging-port=9222'
     ],
     executablePath:  process.env.PUPPETEER_EXECUTABLE_PATH
     //executablePath:"/opt/homebrew/bin/chromium"

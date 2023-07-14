@@ -13,7 +13,7 @@ module.exports = async function (req, res) {
 
   //lauch a chromium browser
   const puppeteerConfig = { 
-    headless: true ,
+    headless: 'new' ,
     dumpio: true,
     args: [
       '--no-sandbox',

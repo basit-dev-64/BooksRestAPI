@@ -17,9 +17,7 @@ module.exports = async function (req, res) {
     dumpio: true,
     args: [
       '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--single-process', 
-      '--no-zygote'
+      '--disable-setuid-sandbox'
     ],
     executablePath:  process.env.PUPPETEER_EXECUTABLE_PATH
     //executablePath:"/opt/homebrew/bin/chromium"
@@ -196,7 +194,7 @@ module.exports = async function (req, res) {
     }
     }
     //closing the chromium brower after completion
-    browser.close();
+    await browser.close();
     res.status(200).send({ length : final_jobs.length  , data: final_jobs });
   } catch (error) {
     console.error(error);

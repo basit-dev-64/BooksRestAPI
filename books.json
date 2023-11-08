@@ -1,0 +1,28 @@
+[
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "summary": "A novel about the American Dream and the Roaring Twenties."
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "summary": "A classic novel addressing racial injustice in the American South."
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "summary": "A dystopian novel depicting a totalitarian regime and thought control."
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "summary": "A love story set in the early 19th century England."
+    },
+    {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "summary": "A coming-of-age novel following the adventures of Holden Caulfield."
+    }
+  ]
+  

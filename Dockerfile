@@ -1,14 +1,15 @@
-FROM node:14.19.1-alpine
+FROM node:18.17.1-alpine
 
 WORKDIR /home/node/app
 
-COPY package*.json ./
+COPY . .
+
+ENV NPM_CONFIG_LOGLEVEL=warn
+
+ENV CI=true
 
 RUN npm ci
 
-COPY . .
-
 EXPOSE 5050
 
-CMD [ "node" , "./index.js" ]
-
+ENTRYPOINT ["npm", "start"]
